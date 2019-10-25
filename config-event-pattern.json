@@ -1,0 +1,28 @@
+{
+  "detail": {
+    "eventName": [
+      "DeleteAggregationAuthorization",
+      "DeleteConfigRule",
+      "DeleteConfigurationAggregator",
+      "DeleteConfigurationRecorder",
+      "DeleteEvaluationResults",
+      "DeletePendingAggregationRequest",
+      "DeleteRetentionConfiguration",
+      "PutConfigRule",
+      "PutConfigurationAggregator",
+      "PutConfigurationRecorder",
+      "PutDeliveryChannel",
+      "PutRetentionConfiguration",
+      "StopConfigurationRecorder"
+    ],
+    "eventSource": [
+      "config.amazonaws.com"
+    ]
+  },
+  "detail-type": [
+    "AWS API Call via CloudTrail"
+  ],
+  "source": [
+    "aws.config"
+  ]
+}

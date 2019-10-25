@@ -1,0 +1,8 @@
+{
+  "detail-type": [
+    "Config Rules Compliance Change"
+  ],
+  "source": [
+    "aws.config"
+  ]
+}
