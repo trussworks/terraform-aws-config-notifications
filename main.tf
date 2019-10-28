@@ -44,8 +44,8 @@ resource "aws_cloudwatch_event_target" "compliance_event" {
   target_id = "send-to-sns"
   arn       = "${data.aws_sns_topic.main.arn}"
 
-  input_transformer = {
-    input_paths {
+  input_transformer {
+    input_paths = {
       rule     = "$.detail.configRuleName"
       resource = "$.detail.resourceId"
       status   = "$.detail.newEvaluationResult.complianceType"
@@ -66,8 +66,8 @@ resource "aws_cloudwatch_event_target" "config_event" {
   target_id = "send-to-sns"
   arn       = "${data.aws_sns_topic.main.arn}"
 
-  input_transformer = {
-    input_paths {
+  input_transformer {
+    input_paths = {
       event      = "$.detail.eventName"
       parameters = "$.detail.requestParameters"
     }
