@@ -1,4 +1,3 @@
-<!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 Enables AWS Config and configures any compliance changes or AWS Config service
 changes to be sent to an SNS topic.
 
@@ -20,6 +19,8 @@ module "config-notifications" {
 }
 ```
 
+
+<!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 ## Inputs
 
 | Name | Description | Type | Default | Required |
