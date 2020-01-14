@@ -26,7 +26,7 @@
 #
 
 data "aws_sns_topic" "main" {
-  name = "${var.sns_topic_name}"
+  name = var.sns_topic_name
 }
 
 #
@@ -36,13 +36,13 @@ data "aws_sns_topic" "main" {
 resource "aws_cloudwatch_event_rule" "compliance_event" {
   name          = "awsconfig-compliance-events"
   description   = "AWS Config compliance events"
-  event_pattern = "${file("${path.module}/compliance-event-pattern.json")}"
+  event_pattern = file("${path.module}/compliance-event-pattern.json")
 }
 
 resource "aws_cloudwatch_event_target" "compliance_event" {
-  rule      = "${aws_cloudwatch_event_rule.compliance_event.name}"
+  rule      = aws_cloudwatch_event_rule.compliance_event.name
   target_id = "send-to-sns"
-  arn       = "${data.aws_sns_topic.main.arn}"
+  arn       = data.aws_sns_topic.main.arn
 
   input_transformer {
     input_paths = {
@@ -58,13 +58,13 @@ resource "aws_cloudwatch_event_target" "compliance_event" {
 resource "aws_cloudwatch_event_rule" "config_event" {
   name          = "awsconfig-events"
   description   = "AWS Config events"
-  event_pattern = "${file("${path.module}/config-event-pattern.json")}"
+  event_pattern = file("${path.module}/config-event-pattern.json")
 }
 
 resource "aws_cloudwatch_event_target" "config_event" {
-  rule      = "${aws_cloudwatch_event_rule.config_event.name}"
+  rule      = aws_cloudwatch_event_rule.config_event.name
   target_id = "send-to-sns"
-  arn       = "${data.aws_sns_topic.main.arn}"
+  arn       = data.aws_sns_topic.main.arn
 
   input_transformer {
     input_paths = {
@@ -75,3 +75,4 @@ resource "aws_cloudwatch_event_target" "config_event" {
     input_template = "\"AWS Config Change: Event <event> with request parameters: <parameters>.\""
   }
 }
+
