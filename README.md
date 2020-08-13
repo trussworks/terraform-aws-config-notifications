@@ -21,10 +21,26 @@ module "config-notifications" {
 
 
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+## Requirements
+
+| Name | Version |
+|------|---------|
+| terraform | ~> 0.12.0 |
+
+## Providers
+
+| Name | Version |
+|------|---------|
+| aws | n/a |
+
 ## Inputs
 
 | Name | Description | Type | Default | Required |
-|------|-------------|:----:|:-----:|:-----:|
-| sns\_topic\_name | The name of the SNS topic to send AWS Config notifications. | string | n/a | yes |
+|------|-------------|------|---------|:--------:|
+| sns\_topic\_name | The name of the SNS topic to send AWS Config notifications. | `string` | n/a | yes |
+
+## Outputs
+
+No output.
 
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
