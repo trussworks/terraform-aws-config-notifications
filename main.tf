@@ -52,4 +52,3 @@ resource "aws_cloudwatch_event_target" "config_event" {
     input_template = "\"AWS Config Change: Event <event> with request parameters: <parameters>.\""
   }
 }
-
